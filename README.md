@@ -1,1 +1,3 @@
-# Guess-The-Right-Hamster-Breed
+# How to install:
+Download the repo
+Run expo start
