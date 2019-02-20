@@ -1,13 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import HomeScreen from './screens/HomeScreen'
 
-class App extends Component {
-  render() {
-    return (
-      <HomeScreen />
-    )
-  }
+const App = () => {
+  return <HomeScreen />
 }
 
 export default App

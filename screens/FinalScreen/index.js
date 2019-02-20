@@ -6,16 +6,24 @@ class Final extends Component {
   render() {
     const score = this.props.score
     const name = this.props.name
-  
+
     return (
-      <View style={{flex: 1, height: '100%', backgroundColor: '#008000'}}>
+      <View style={{ flex: 1, height: '100%', backgroundColor: '#008000' }}>
         <View style={styles.container}>
-          <Text style={styles.heading}>Hello {`${name}`}. You scored {`${score}`} out of 5.</Text>
+          <Text style={styles.heading}>
+            Hello {`${name}`}. You scored {`${score}`} out of 5.
+          </Text>
           <View style={styles.buttonGroup}>
-            <TouchableHighlight style={styles.button} onPress={() => this.props.onShowGameScreen()}>
+            <TouchableHighlight
+              style={styles.button}
+              onPress={() => this.props.onShowGameScreen()}
+            >
               <Text style={styles.buttonText}>Play Again</Text>
             </TouchableHighlight>
-            <TouchableHighlight style={styles.button} onPress={() => this.props.onShowMainMenu()}>
+            <TouchableHighlight
+              style={styles.button}
+              onPress={() => this.props.onShowMainMenu()}
+            >
               <Text style={styles.buttonText}>Play As Another Player</Text>
             </TouchableHighlight>
           </View>
