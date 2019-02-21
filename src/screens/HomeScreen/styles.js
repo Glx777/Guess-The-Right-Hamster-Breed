@@ -9,13 +9,13 @@ export const styles = StyleSheet.create({
     backgroundColor: '#800080',
     alignItems: 'center'
   },
+  itemGroup: {
+    marginTop: getHeight() * 0.4
+  },
   heading: {
     color: '#fff',
     fontSize: getWidth() * 0.07,
     marginBottom: getHeight() * 0.03
-  },
-  itemGroup: {
-    marginTop: getHeight() * 0.5
   },
   textInput: {
     borderWidth: 1,
@@ -28,18 +28,5 @@ export const styles = StyleSheet.create({
     paddingBottom: 15,
     paddingTop: 15,
     color: '#fff'
-  },
-  button: {
-    backgroundColor: '#fff',
-    width: getWidth() * 0.96,
-    alignItems: 'center',
-    borderRadius: 10,
-    marginTop: getHeight() * 0.03
-  },
-  buttonText: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    color: '#800080',
-    fontSize: getWidth() * 0.06
   }
 })

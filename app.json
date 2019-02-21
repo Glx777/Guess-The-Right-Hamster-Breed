@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FirstApp",
-    "slug": "FirstProject",
+    "name": "Guess-The-Right-Hamster-Breed",
+    "slug": "Guess-The-Right-Hamster-Breed",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -25,7 +25,7 @@
       "bundleIdentifier": "IosApp"
     },
     "android": {
-      "package": "app.brave.developers"
+      "package": "app.guesstherighthamsterbreed"
     }
   }
 }

@@ -1,4 +1,4 @@
-export const hamsterBreeds = {
+export const hamsters = {
   syrian: 'Syrian Hamster',
   robo: 'Robo Hamster',
   chinese: 'Chinese Hamster',
