@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 
 import { resetName, resetScore } from '../../store/actions'
+import PlayAgainButton from '../../components/Buttons/PlayAgainButton'
+import PlayAgainAsAnotherPlayerButton from '../../components/Buttons/PlayAgainAsAnotherPlayerButton'
 
 import { styles } from './styles'
 
@@ -28,22 +30,18 @@ class FinalScreen extends Component {
             Hello {`${name}`}. You scored {`${score}`} out of 5.
           </Text>
           <View style={styles.buttonGroup}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={styles.button}
-              onPress={() => this.onPlayAgain(dispatch, navigation)}
-            >
-              <Text style={styles.buttonText}>Play Again</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={styles.button}
-              onPress={() =>
-                this.onPlayAgainAsAnotherPlayer(dispatch, navigation)
-              }
-            >
-              <Text style={styles.buttonText}>Play As Another Player</Text>
-            </TouchableOpacity>
+            <PlayAgainButton
+              dispatch={dispatch}
+              navigation={navigation}
+              onPlayAgain={this.onPlayAgain.bind(this)}
+            />
+            <PlayAgainAsAnotherPlayerButton
+              dispatch={dispatch}
+              navigation={navigation}
+              onPlayAgainAsAnotherPlayer={this.onPlayAgainAsAnotherPlayer.bind(
+                this
+              )}
+            />
           </View>
         </View>
       </View>

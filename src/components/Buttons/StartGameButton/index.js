@@ -1,21 +1,25 @@
 import React from 'react'
-import { Alert, Keyboard, Text, TouchableOpacity } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 
+import { setName } from '../../../store/actions'
 import { styles } from '../styles'
 
-const StartGameButton = ({ name, navigation, screen }) => {
+const StartGameButton = ({
+  handleSubmit,
+  dispatch,
+  name,
+  values,
+  resetName
+}) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       style={styles.startGameButton}
       onPress={() => {
-        if (name) {
-          Keyboard.dismiss()
-          navigation.navigate(screen)
-        } else {
-          Alert.alert('Name cannot be empty!')
-        }
+        dispatch(setName(name))
+        handleSubmit()
+        resetName(values)
       }}
     >
       <Text style={styles.startGameButtonText}>Start Game</Text>
@@ -24,9 +28,15 @@ const StartGameButton = ({ name, navigation, screen }) => {
 }
 
 StartGameButton.propTypes = {
-  name: PropTypes.string.isRequired,
-  navigation: PropTypes.object.isRequired,
-  screen: PropTypes.string.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  name: PropTypes.string,
+  dispatch: PropTypes.func.isRequired,
+  values: PropTypes.object.isRequired,
+  resetName: PropTypes.func.isRequired
+}
+
+StartGameButton.defaultProps = {
+  name: ''
 }
 
 export default StartGameButton

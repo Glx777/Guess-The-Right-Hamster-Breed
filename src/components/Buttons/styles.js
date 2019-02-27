@@ -28,13 +28,25 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     width: getWidth() * 0.96,
     alignItems: 'center',
-    borderRadius: 10,
-    marginTop: getHeight() * 0.03
+    borderRadius: 10
   },
   startGameButtonText: {
     paddingTop: 20,
     paddingBottom: 20,
     color: '#800080',
     fontSize: getWidth() * 0.06
+  },
+  playAgainButton: {
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    marginTop: getHeight() * 0.04,
+    width: getWidth() * 0.96
+  },
+  playAgainButtonText: {
+    color: '#008000',
+    fontSize: getWidth() * 0.06,
+    paddingBottom: getHeight() * 0.03,
+    paddingTop: getHeight() * 0.03
   }
 })
