@@ -1,19 +1,35 @@
 import React from 'react'
-import { Text, View, KeyboardAvoidingView } from 'react-native'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import {
+  responsiveFontSize,
+  responsiveHeight
+} from 'react-native-responsive-dimensions'
 
 import Form from '../../components/Form'
 
-import { styles } from './styles'
+const Container = styled.View`
+  flex: 1;
+  background-color: #800080;
+`
+const ItemGroup = styled.KeyboardAvoidingView`
+  margin-top: ${responsiveHeight(40)};
+`
+
+const Heading = styled.Text`
+  color: #fff;
+  font-size: ${responsiveFontSize(3.5)};
+  margin-bottom: ${responsiveHeight(3)};
+`
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <KeyboardAvoidingView style={styles.itemGroup} behavior="position">
-        <Text style={styles.heading}>Guess The Right Hamster Breed</Text>
+    <Container>
+      <ItemGroup behavior="position">
+        <Heading>Guess The Right Hamster Breed</Heading>
         <Form navigation={navigation} />
-      </KeyboardAvoidingView>
-    </View>
+      </ItemGroup>
+    </Container>
   )
 }
 

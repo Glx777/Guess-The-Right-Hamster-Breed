@@ -1,10 +1,27 @@
 import React from 'react'
-import { Text, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import {
+  responsiveFontSize,
+  responsiveHeight,
+  responsiveWidth
+} from 'react-native-responsive-dimensions'
 
 import { setName } from '../../../store/actions'
-import { styles } from '../styles'
 
+const Button = styled.TouchableOpacity`
+  background-color: #fff;
+  width: ${responsiveWidth(96)};
+  align-items: center;
+  border-radius: ${responsiveHeight(2)};
+`
+
+const ButtonText = styled.Text`
+  padding-top: ${responsiveFontSize(3)};
+  padding-bottom: ${responsiveFontSize(3)};
+  color: #800080;
+  font-size: ${responsiveFontSize(3)};
+`
 const StartGameButton = ({
   handleSubmit,
   dispatch,
@@ -13,17 +30,16 @@ const StartGameButton = ({
   resetName
 }) => {
   return (
-    <TouchableOpacity
+    <Button
       activeOpacity={0.8}
-      style={styles.startGameButton}
       onPress={() => {
         dispatch(setName(name))
         handleSubmit()
         resetName(values)
       }}
     >
-      <Text style={styles.startGameButtonText}>Start Game</Text>
-    </TouchableOpacity>
+      <ButtonText>Start Game</ButtonText>
+    </Button>
   )
 }
 

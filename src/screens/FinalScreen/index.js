@@ -2,12 +2,22 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
+import {
+  responsiveFontSize,
+  responsiveHeight
+} from 'react-native-responsive-dimensions'
 
 import { resetName, resetScore } from '../../store/actions'
 import PlayAgainButton from '../../components/Buttons/PlayAgainButton'
 import PlayAgainAsAnotherPlayerButton from '../../components/Buttons/PlayAgainAsAnotherPlayerButton'
 
 import { styles } from './styles'
+
+const Container = styled.View`
+  background-color: #008000;
+  flex: 1;
+`
 
 class FinalScreen extends Component {
   onPlayAgain = (dispatch, navigation) => {
@@ -24,7 +34,7 @@ class FinalScreen extends Component {
   render() {
     const { dispatch, name, navigation, score } = this.props
     return (
-      <View style={styles.container}>
+      <Container>
         <View style={styles.wrapper}>
           <Text style={styles.heading}>
             Hello {`${name}`}. You scored {`${score}`} out of 5.
@@ -44,7 +54,7 @@ class FinalScreen extends Component {
             />
           </View>
         </View>
-      </View>
+      </Container>
     )
   }
 }

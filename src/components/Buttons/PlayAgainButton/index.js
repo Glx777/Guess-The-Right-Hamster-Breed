@@ -1,18 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TouchableOpacity, Text } from 'react-native'
+import styled from 'styled-components'
+import {
+  responsiveFontSize,
+  responsiveHeight,
+  responsiveWidth
+} from 'react-native-responsive-dimensions'
 
-import { styles } from '../styles'
+const Button = styled.TouchableOpacity`
+  align-items: center;
+  background-color: #fff;
+  border-radius: ${responsiveHeight(1.5)};
+  margin-top: ${responsiveHeight(1)};
+  width: ${responsiveWidth(96)};
+`
+
+const ButtonText = styled.Text`
+  color: #008000;
+  font-size: ${responsiveFontSize(3)};
+  padding-bottom: ${responsiveHeight(3)};
+  padding-top: ${responsiveHeight(3)};
+`
 
 const PlayAgainButton = ({ dispatch, navigation, onPlayAgain }) => {
   return (
-    <TouchableOpacity
+    <Button
       activeOpacity={0.8}
-      style={styles.playAgainButton}
       onPress={() => onPlayAgain(dispatch, navigation)}
     >
-      <Text style={styles.playAgainButtonText}>Play Again</Text>
-    </TouchableOpacity>
+      <ButtonText>Play Again</ButtonText>
+    </Button>
   )
 }
 

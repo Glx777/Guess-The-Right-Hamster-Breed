@@ -1,11 +1,35 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
+import {
+  responsiveFontSize,
+  responsiveHeight,
+  responsiveWidth
+} from 'react-native-responsive-dimensions'
 
 import StartGameButton from '../Buttons/StartGameButton'
 
-import { styles } from './styles'
+const Container = styled.View``
+
+const TextInput = styled.TextInput`
+  border-width: ${responsiveWidth(0.5)};
+  border-color: #fff;
+  border-radius: ${responsiveHeight(1.5)};
+  font-size: ${responsiveFontSize(3.5)};
+  width: ${responsiveWidth(96)};
+  padding-left: ${responsiveWidth(3)};
+  padding-right: ${responsiveWidth(3)};
+  padding-bottom: ${responsiveHeight(2.5)};
+  padding-top: ${responsiveHeight(2.5)};
+  color: #fff;
+`
+const ErrorMessage = styled.Text`
+  color: red;
+  font-size: ${responsiveFontSize(3)};
+  margin-top: ${responsiveHeight(1)};
+  margin-bottom: ${responsiveHeight(1)};
+`
 
 class Form extends Component {
   resetName = values => {
@@ -15,15 +39,14 @@ class Form extends Component {
   render() {
     const { handleChange, handleSubmit, errors, values, dispatch } = this.props
     return (
-      <View onSubmit={handleSubmit}>
+      <Container onSubmit={handleSubmit}>
         <TextInput
           onChangeText={handleChange('name')}
           placeholderTextColor="#fff"
-          style={styles.textInput}
           value={values.name}
           placeholder="Enter Your Name"
         />
-        <Text style={styles.errorMessage}>{errors.name}</Text>
+        <ErrorMessage>{errors.name}</ErrorMessage>
         <StartGameButton
           dispatch={dispatch}
           values={values}
@@ -31,7 +54,7 @@ class Form extends Component {
           handleSubmit={handleSubmit}
           resetName={this.resetName.bind(this)}
         />
-      </View>
+      </Container>
     )
   }
 }

@@ -1,18 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TouchableOpacity, Text } from 'react-native'
+import styled from 'styled-components'
+import { responsiveFontSize } from 'react-native-responsive-dimensions'
 
-import { styles } from '../styles'
+const Button = styled.TouchableOpacity`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: #369fff;
+`
+
+const ButtonText = styled.Text`
+  color: #fff;
+  font-size: ${responsiveFontSize(4)};
+`
 
 const BlueButton = ({ text, onGuess }) => {
   return (
-    <TouchableOpacity
-      activeOpacity={0.6}
-      style={[styles.button, styles.blueButton]}
-      onPress={() => onGuess()}
-    >
-      <Text style={styles.buttonText}>{text}</Text>
-    </TouchableOpacity>
+    <Button activeOpacity={0.6} onPress={() => onGuess()}>
+      <ButtonText>{text}</ButtonText>
+    </Button>
   )
 }
 
